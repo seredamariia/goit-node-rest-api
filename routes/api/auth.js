@@ -9,6 +9,7 @@ const {
   authorization,
   getCurrentUser,
   logout,
+  subscriptionUpdate,
 } = require("../../controllers/index");
 const { authenticate } = require("../../middlewares/authenticate");
 
@@ -20,6 +21,6 @@ router.post("/logout", authenticate, logout);
 
 router.get("/current", authenticate, getCurrentUser);
 
-router.patch("/", authenticate);
+router.patch("/", authenticate, subscriptionUpdate);
 
 module.exports = router;
